@@ -1,4 +1,5 @@
 const { getTrips, getDriver } = require('api');
+const { normalizeAmount} = require('../src/utils');
 
 /**
  * This function should return the trip data analysis

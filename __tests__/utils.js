@@ -1,4 +1,4 @@
-const { normalizeAmount } = require('../src/utils');
+const { normalizeAmount} = require('../src/utils');
 
 describe('Convert string amounts to a number', () => {
   test('it works with the amount as a string', () => {
@@ -27,3 +27,5 @@ describe('Convert string amounts to a number', () => {
     expect(normalizeAmount('1,2,3,4.56')).toBe(1234.56);
   });
 });
+
+
