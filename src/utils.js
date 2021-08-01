@@ -23,7 +23,7 @@ async function getTotalDrivers() {
           return driver;
         })
         .catch(err => {
-          return { id, vehicleId: "Problem with vechile ID" };
+          return { id, vehicleID:[] };
         });
     });
     return Promise.all(response).then(drivers => {
@@ -88,6 +88,20 @@ async function getVehicleDetails(vehiclesID) {
     return Promise.all(vehicleDetails).then(details => details);
   }
 
+  async function getMultipleVechileDrivers() {
+    const drivers = await getTotalDrivers();
+    
+    let noOfdrivers = 0;
+    for (const driver of drivers) {
+      if (driver.vehicleID.length > 1) {
+        noOfdrivers++;
+      }
+    }
+    //console.log(noOfdrivers);
+    return noOfdrivers;
+  }
 
-module.exports = { normalizeAmount, getTotalTrips, getTotalDrivers, getMostTrips, getTripsByDriver, getVehicleDetails} ;
+
+
+module.exports = { normalizeAmount, getTotalTrips, getTotalDrivers, getMostTrips, getTripsByDriver, getVehicleDetails, getMultipleVechileDrivers} ;
 //module.exports.normalizeAmount = normalizeAmount;
