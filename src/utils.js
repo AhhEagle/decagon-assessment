@@ -71,6 +71,7 @@ async function getTotalDrivers() {
   }
 
 
+
 async function getVehicleDetails(vehiclesID) {
     const result = [];
     const vehicleDetails = vehiclesID.map(vehicleId => {
@@ -83,10 +84,12 @@ async function getVehicleDetails(vehiclesID) {
         .catch(err => {
           console.log(err);
         });
-    });
+    })
   
     return Promise.all(vehicleDetails).then(details => details);
   }
+  //console.log("")
+  
 
   async function getMultipleVechileDrivers() {
     const drivers = await getTotalDrivers();
@@ -97,11 +100,15 @@ async function getVehicleDetails(vehiclesID) {
         noOfdrivers++;
       }
     }
-    //console.log(noOfdrivers);
+ 
     return noOfdrivers;
+  }
+
+  function toTwoDecimalPlace(value) {
+    return Math.round((value + Number.EPSILON) * 100) / 100;
   }
 
 
 
-module.exports = { normalizeAmount, getTotalTrips, getTotalDrivers, getMostTrips, getTripsByDriver, getVehicleDetails, getMultipleVechileDrivers} ;
+module.exports = { normalizeAmount, getTotalTrips, getTotalDrivers, getMostTrips, getTripsByDriver, getVehicleDetails, getMultipleVechileDrivers,toTwoDecimalPlace} ;
 //module.exports.normalizeAmount = normalizeAmount;

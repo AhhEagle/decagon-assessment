@@ -35,7 +35,6 @@ async function analysis() {
   
   
   let noOfTrips = sortedByTrips[0].trips;
-  console.log(noOfTrips);
  
   let totalAmountEarned = sortedByTrips[0].tripTotal;
   let driverDetails = await getDriver(driverWithMostTrips);

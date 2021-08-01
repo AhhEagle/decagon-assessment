@@ -55,6 +55,9 @@ describe('analysis spec', () => {
 });
 
 describe('driver report', () => {
+  beforeEach(() => {
+    jest.setTimeout(100000);
+  });
   test('matches the required data format', async () => {
     return expect(driverReport()).resolves.toEqual(report);
   });
