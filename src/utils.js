@@ -88,7 +88,7 @@ async function getVehicleDetails(vehiclesID) {
   
     return Promise.all(vehicleDetails).then(details => details);
   }
-  //console.log("")
+
   
 
   async function getMultipleVechileDrivers() {
@@ -111,4 +111,3 @@ async function getVehicleDetails(vehiclesID) {
 
 
 module.exports = { normalizeAmount, getTotalTrips, getTotalDrivers, getMostTrips, getTripsByDriver, getVehicleDetails, getMultipleVechileDrivers,toTwoDecimalPlace} ;
-//module.exports.normalizeAmount = normalizeAmount;

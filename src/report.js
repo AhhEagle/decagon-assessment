@@ -15,8 +15,6 @@ async function driverReport() {
     for (let driver of drivers) {
       const { name, id, phone, vehicleID } = driver;
       const vehicles = await getVehicleDetails(vehicleID);
-      const vechileresult = vehicles[0] || []
-     //console.log(vechileresult);
       const trips = await getTripsByDriver(id);
       const cashTrips = trips.filter(trip => trip.isCash);
       const nonCashTrips = trips.filter(trip => !trip.isCash);
@@ -31,7 +29,6 @@ async function driverReport() {
         noOfTrips: mostTrips[id].trips,
         noOfCashTrips: cashTrips.length,
         noOfNonCashTrips: nonCashTrips.length,
-        //noOfVehicles: vehicleID.length,
         trips,
         totalAmountEarned: toTwoDecimalPlace(totalCashAmount + totalNonCashAmount),
         totalCashAmount:  toTwoDecimalPlace(totalCashAmount),
@@ -39,7 +36,6 @@ async function driverReport() {
       };
       clean(response);
       result.push(response);
-      //console.log(response);
     }
   
     return result;
